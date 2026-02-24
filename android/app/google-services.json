@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "758943438810",
+    "project_id": "rakna-app-e7d6c",
+    "storage_bucket": "rakna-app-e7d6c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758943438810:android:a59f36e8fa93d20b4052e3",
+        "android_client_info": {
+          "package_name": "com.example.rakna_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIyNonXnrdu77evMQsAZC_7ZxeXYfS2bo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
