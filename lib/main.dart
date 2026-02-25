@@ -1,4 +1,3 @@
-import 'package:device_frame/device_frame.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,8 +16,6 @@ import 'package:rakna_app/presentation/pages/guard_home_screen.dart';
 import 'package:rakna_app/presentation/pages/home_screen.dart';
 import 'package:rakna_app/presentation/pages/login_screen.dart';
 import 'package:rakna_app/presentation/pages/onboarding_screen.dart';
-
-const bool _kShowDeviceFrame = true;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,38 +46,13 @@ class RaknaApp extends StatelessWidget {
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
         builder: (context, themeMode) {
-          final app = MaterialApp(
+          return MaterialApp(
             title: 'Rakna',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
             themeMode: themeMode,
             home: const _AuthGate(),
-          );
-
-          if (!_kShowDeviceFrame) return app;
-
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData.dark().copyWith(
-              scaffoldBackgroundColor: const Color(0xFF111111),
-            ),
-            home: Scaffold(
-              backgroundColor: const Color(0xFF111111),
-              body: SafeArea(
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(24.0),
-                    child: DeviceFrame(
-                      device: Devices.ios.iPhone13ProMax,
-                      isFrameVisible: true,
-                      orientation: Orientation.portrait,
-                      screen: app,
-                    ),
-                  ),
-                ),
-              ),
-            ),
           );
         },
       ),
@@ -141,6 +113,7 @@ class _AuthGateState extends State<_AuthGate> {
         if (!_onboardingComplete!) {
           return const OnboardingScreen();
         }
+
         return const LoginScreen();
       },
     );
